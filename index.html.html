@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Keren</title>
+    <!-- Jelaskan Kodingan ini apa: Setelah memahami W3School sejauh ini saya mengetahui bahwa bagian ini fungsinya buat 'manggil' tool bantuan dari internet.
+      Di sini saya juga mnggunakan Tailwind CSS biar gak perlu capek ngoding warna/layout manual satu-satu, terus 
+      saya juga ambil Google Fonts biar tulisan di kalkulatornya ini kelihatan lebih modern dan suapaya tidak terlalu kaku. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="Style_Ariska Novianti.CSS" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-sm bg-gray-800 rounded-2xl shadow-2xl p-6 space-y-4">
+        
+        <!-- Jelaskan Kodingan ini apa: Yang saya ketahui bahwa kodingan buat nampilin gambar banner di atas kalkulator-nya. -->
+        <div>
+            <img id="statusImage" 
+                 src="https://placehold.co/400x100/374151/E5E7EB?text=Kalkulator" 
+                 alt="Status Kalkulator"
+                 class="w-full rounded-lg transition-all duration-300 ease-in-out shadow-inner">
+        </div>
+
+        <!-- Jelaskan Kodingan ini apa Jawaban saya bahwa Codingan ini merupakan area layar utama buat nampilin angkanya. -->
+        <div class="bg-gray-900 rounded-lg p-4 shadow-inner">
+            <input type="text" id="display" 
+                   class="w-full bg-transparent text-right text-5xl font-mono text-white border-0 outline-none p-2" 
+                   readonly 
+                   placeholder="0">
+        </div>
+
+        <!-- Jelaskan Kodingan ini apa: Codingan ini merupakan sebuah pembungkus untuk semua tombolnya. -->
+        <div class="grid grid-cols-4 gap-3">
+            <!-- Jelaskan Kodingan ini apa: Yang saya ketahui berdasarkan W3School bahwa baris paling atas ini khusus tombol fungsi penting. 
+             Ada 'C' (Clear) warna merah buat hapus semua, terus 
+             'DEL' buat hapus satu angka aja. Sengaja warnanya beda biar mata user 
+             langsung tau ini tombol kontrol, dan tentunya bukan angka. -->
+            <button data-value="C" class="btn-calc text-2xl font-bold bg-red-600 hover:bg-red-500 rounded-lg p-5 shadow-md text-white">C</button>
+            <button data-value="DEL" class="btn-calc text-2xl font-bold bg-gray-600 hover:bg-gray-500 rounded-lg p-5 shadow-md text-white">DEL</button>
+            <button data-value="%" class="btn-calc text-2xl font-bold bg-gray-600 hover:bg-gray-500 rounded-lg p-5 shadow-md text-white">%</button>
+            <button data-value="/" class="btn-calc text-2xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg p-5 shadow-md text-white">/</button>
+
+            <!--  Jelaskan Kodingan ini apa: Jawaban saya, bahwa area ini merupakan baris buat input angka 7 sampai 9 sama tombol perkalian. -->
+            <button data-value="7" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">7</button>
+            <button data-value="8" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">8</button>
+            <button data-value="9" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">9</button>
+            <button data-value="*" class="btn-calc text-2xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg p-5 shadow-md text-white">*</button>
+
+            <!--  Jelaskan Kodingan ini apa: Yang saya ketahui bahwa hal ini sama seperti atasnya, yaitu baris buat angka tengah (4, 5, 6) sama tombol pengurangan. -->
+            <button data-value="4" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">4</button>
+            <button data-value="5" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">5</button>
+            <button data-value="6" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">6</button>
+            <button data-value="-" class="btn-calc text-2xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg p-5 shadow-md text-white">-</button>
+
+            <!--  Jelaskan Kodingan ini apa: Jawaban saya bahwa ini merupakan baris angka bawah (1, 2, 3) sama tombol tambah. Tombol operatornya (+).  -->
+            <button data-value="1" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">1</button>
+            <button data-value="2" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">2</button>
+            <button data-value="3" class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">3</button>
+            <button data-value="+" class="btn-calc text-2xl font-bold bg-blue-600 hover:bg-blue-500 rounded-lg p-5 shadow-md text-white">+</button>
+
+            <!--  Jelaskan Kodingan ini apa: Codingan ini merupakan sebuah Tombol Bawah (0, ., =). -->
+            <button data-value="0" class="btn-calc col-span-2 text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">0</button>
+            <button data-value="." class="btn-calc text-2xl font-bold bg-gray-700 hover:bg-gray-600 rounded-lg p-5 shadow-md text-white">.</button>
+            <button data-value="=" class="btn-calc text-2xl font-bold bg-green-600 hover:bg-green-500 rounded-lg p-5 shadow-md text-white">=</button>
+        </div>
+
+    </div>
+    <script src="Script.js"></script>
+
+</body>
+</html>
